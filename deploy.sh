@@ -217,6 +217,8 @@ cd ~
 info "Checking the arguments"
 export $* >/dev/null 2>&1
 check_args
+info "Get architecture information"
+setup_verify_arch
 info "Create file tree"
 mkdir -p ~/.edgeSite/conf/
 deploy_files
