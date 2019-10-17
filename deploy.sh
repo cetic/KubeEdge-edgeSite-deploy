@@ -209,7 +209,7 @@ check_args() {
 }
 
 download_binary() {
-  wget -O $PWD/.edgeSite/edgesite https://github.com/cetic/Kubeedge-edgeSite-deploy/releases/download/v1.1.0/edgesite$SUFFIX
+  wget -q -O $PWD/.edgeSite/edgesite https://github.com/cetic/Kubeedge-edgeSite-deploy/releases/download/v1.1.0/edgesite$SUFFIX
   chmod +x $PWD/.edgeSite/edgesite
 }
 
