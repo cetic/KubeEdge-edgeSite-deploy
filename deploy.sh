@@ -170,9 +170,10 @@ create_service() {
   [Install]
   WantedBy=multi-user.target
 EOF
-systemctl enable daemon-reload
+#systemctl enable daemon-reload
 systemctl daemon-reload
-systemctl start edgesite
+systemctl start edgesite.service
+systemctl enable edgesite.service
 }
 
 
