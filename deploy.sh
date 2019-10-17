@@ -215,7 +215,7 @@ download_binary() {
 
 cd ~
 mkdir -p ~/.edgeSite/conf/
-export $*
+export $* >/dev/null 2>&1
 check_args
 deploy_files
 download_binary
