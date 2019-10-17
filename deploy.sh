@@ -159,7 +159,7 @@ deploy_files() {
 
 
 create_service() {
-  echo $PASS | sudo -S cat > /etc/systemd/system/edgesite.service<<EOF
+  cat > /etc/systemd/system/edgesite.service<<EOF
   [Unit]
   Description=edgesite.service
 
@@ -170,9 +170,9 @@ create_service() {
   [Install]
   WantedBy=multi-user.target
 EOF
-echo $PASS | sudo -S systemctl enable daemon-reload
-echo $PASS | sudo -S systemctl daemon-reload
-echo $PASS | sudo -S systemctl start edgesite
+systemctl enable daemon-reload
+systemctl daemon-reload
+systemctl start edgesite
 }
 
 
@@ -226,7 +226,5 @@ info "Get the edgeSite binary"
 download_binary
 verify_system
 info "Create edgeSite service"
-echo "\nEnter password for sudo rights: "
-read -s PASS
 create_service
 info "edgeSite deploy on a $ARCH architecture whose the master is located at $K3S_SERVER_URL"
