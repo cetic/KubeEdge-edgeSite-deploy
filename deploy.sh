@@ -226,6 +226,6 @@ info "Get the edgeSite binary"
 download_binary
 info "Create edgeSite service"
 verify_system
-sudo su
+su
 create_service
 info "edgeSite deploy on a $ARCH architecture whose the master is located at $K3S_SERVER_URL"
