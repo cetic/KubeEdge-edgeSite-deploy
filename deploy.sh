@@ -214,11 +214,15 @@ download_binary() {
 }
 
 cd ~
-mkdir -p ~/.edgeSite/conf/
+info "Checking the arguments"
 export $* >/dev/null 2>&1
 check_args
+info "Create file tree"
+mkdir -p ~/.edgeSite/conf/
 deploy_files
+info "Get the edgeSite binary"
 download_binary
+info "Create edgeSite service"
 verify_system
 create_service
-info "Deployement complete !"
+info "edgeSite deploy on a $ARCH architecture whose the master is located at $K3S_SERVER_URL"
