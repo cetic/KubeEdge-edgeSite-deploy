@@ -159,7 +159,7 @@ deploy_files() {
 
 
 create_service() {
-  cat > etc/systemd/system/edgesite.service<<EOF
+  cat > /etc/systemd/system/edgesite.service<<EOF
   [Unit]
   Description=edgesite.service
 
