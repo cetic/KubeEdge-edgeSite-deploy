@@ -110,25 +110,25 @@ EOF
 
 create_kubeconfig_file() {
   cat > $PWD/.edgeSite/conf/kubeconfig.yaml <<EOF
-  apiVersion: v1
-  clusters:
-  - cluster:
-      certificate-authority-data: $SSL_CERT
-      server: https:// https://127.0.0.1:6443
-    name: default
-  contexts:
-  - context:
-      cluster: default
-      user: default
-    name: default
-  current-context: default
-  kind: Config
-  preferences: {}
-  users:
-  - name: default
-    user:
-      password: $USER_PASS
-      username: $USER_NAME
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: $SSL_CERT
+    server: https:// https://127.0.0.1:6443
+  name: default
+contexts:
+- context:
+    cluster: default
+    user: default
+  name: default
+current-context: default
+kind: Config
+preferences: {}
+users:
+- name: default
+  user:
+    password: $USER_PASS
+    username: $USER_NAME
 EOF
 }
 
