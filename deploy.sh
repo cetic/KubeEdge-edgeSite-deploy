@@ -159,8 +159,8 @@ deploy_files() {
 
 
 create_service() {
-  [ $(id -u) -eq 0 ] || exec sudo $0 $@
-  cat > /etc/systemd/system/edgesite.service<<EOF
+
+  [ $(id -u) -eq 0 ] || exec sudo cat > /etc/systemd/system/edgesite.service<<EOF
   [Unit]
   Description=edgesite.service
 
@@ -172,9 +172,9 @@ create_service() {
   WantedBy=multi-user.target
 EOF
 #systemctl enable daemon-reload
-systemctl daemon-reload
-systemctl start edgesite.service
-systemctl enable edgesite.service
+[ $(id -u) -eq 0 ] || exec sudo systemctl daemon-reload
+[ $(id -u) -eq 0 ] || exec sudo systemctl start edgesite.service
+[ $(id -u) -eq 0 ] || exec sudo systemctl enable edgesite.service
 }
 
 
@@ -216,7 +216,6 @@ download_binary() {
 }
 
 cd ~
-CURRENT="$PWD"
 info "Checking the arguments"
 export $* >/dev/null 2>&1
 check_args
