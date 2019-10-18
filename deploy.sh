@@ -160,21 +160,21 @@ deploy_files() {
 
 create_service() {
 
-  [ $(id -u) -eq 0 ] || exec sudo cat > /etc/systemd/system/edgesite.service<<EOF
-  [Unit]
-  Description=edgesite.service
+cat > /etc/systemd/system/edgesite.service<<EOF
+[Unit]
+Description=edgesite.service
 
-  [Service]
-  Type=simple
-  ExecStart=$PWD/.edgeSite/edgesite
+[Service]
+Type=simple
+ExecStart=$PWD/.edgeSite/edgesite
 
-  [Install]
-  WantedBy=multi-user.target
+[Install]
+WantedBy=multi-user.target
 EOF
 #systemctl enable daemon-reload
-[ $(id -u) -eq 0 ] || exec sudo systemctl daemon-reload
-[ $(id -u) -eq 0 ] || exec sudo systemctl start edgesite.service
-[ $(id -u) -eq 0 ] || exec sudo systemctl enable edgesite.service
+systemctl daemon-reload
+systemctl start edgesite.service
+systemctl enable edgesite.service
 }
 
 
