@@ -166,7 +166,7 @@ create_service() {
 
   [Service]
   Type=simple
-  ExecStart=$PWD/.edgeSite/edgesite
+  ExecStart=$CURRENT/.edgeSite/edgesite
 
   [Install]
   WantedBy=multi-user.target
@@ -216,6 +216,7 @@ download_binary() {
 }
 
 cd ~
+CURRENT=$PWD
 info "Checking the arguments"
 export $* >/dev/null 2>&1
 check_args
