@@ -216,7 +216,7 @@ download_binary() {
 }
 
 cd ~
-CURRENT=$PWD
+CURRENT="$PWD"
 info "Checking the arguments"
 export $* >/dev/null 2>&1
 check_args
