@@ -114,7 +114,7 @@ create_kubeconfig_file() {
   clusters:
   - cluster:
       certificate-authority-data: $SSL_CERT
-      server: https://$K3S_SERVER_URL:6443
+      server: https:// https://127.0.0.1:6443
     name: default
   contexts:
   - context:
@@ -225,6 +225,7 @@ mkdir -p ~/.edgeSite/conf/
 deploy_files
 info "Get the edgeSite binary"
 download_binary
+[ $(id -u) -eq 0 ] || exec sudo $0 $@
 verify_system
 info "Create edgeSite service"
 create_service
