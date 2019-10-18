@@ -114,7 +114,7 @@ apiVersion: v1
 clusters:
 - cluster:
     certificate-authority-data: $SSL_CERT
-    server: https:// https://127.0.0.1:6443
+    server: https://127.0.0.1:6443
   name: default
 contexts:
 - context:
