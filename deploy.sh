@@ -159,6 +159,7 @@ deploy_files() {
 
 
 create_service() {
+  [ $(id -u) -eq 0 ] || exec sudo $0 $@
   cat > /etc/systemd/system/edgesite.service<<EOF
   [Unit]
   Description=edgesite.service
@@ -225,7 +226,6 @@ mkdir -p ~/.edgeSite/conf/
 deploy_files
 info "Get the edgeSite binary"
 download_binary
-[ $(id -u) -eq 0 ] || exec sudo $0 $@
 verify_system
 info "Create edgeSite service"
 create_service
