@@ -166,7 +166,7 @@ create_service() {
 
   [Service]
   Type=simple
-  ExecStart=$CURRENT/.edgeSite/edgesite
+  ExecStart=$PWD/.edgeSite/edgesite
 
   [Install]
   WantedBy=multi-user.target
